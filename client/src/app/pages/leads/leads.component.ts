@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Lead } from 'src/app/models/Lead';
 import { LeadService } from 'src/app/service/lead.service';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-leads',

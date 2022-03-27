@@ -11,4 +11,17 @@ async function getOneLeadAsync(id) {
     return lead;
 }
 
-module.exports = { getAllLeadsAsync, getOneLeadAsync}
+async function createOneLeadAsync(data) { 
+    const {leadID, leadName, leadAddress, leadPhone, leadMail } = data;
+    const sql = `INSERT INTO leads VALUES (${leadID}, '${leadName}', '${leadAddress}' , '${leadPhone}' ,'${leadMail}' );`;
+    const lead = await dal.executeAsync(sql);
+    return lead;
+}
+
+async function deleteOneLeadAsync(id) { 
+    const sql = `DELETE FROM leads WHERE leadID = ${id}`;
+    const lead = await dal.executeAsync(sql);
+    return lead;
+}
+
+module.exports = { getAllLeadsAsync, getOneLeadAsync, createOneLeadAsync, deleteOneLeadAsync}

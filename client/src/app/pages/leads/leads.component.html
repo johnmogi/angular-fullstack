@@ -1,1 +1,18 @@
-<p>leads works!</p>
+<p-table [value]="leads">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Mail</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-lead>
+        <tr>
+            <td>{{lead.leadName}}</td>
+            <td>{{lead.leadAddress}}</td>
+            <td>{{lead.leadPhone}}</td>
+            <td>{{lead.leadMail}}</td>
+        </tr>
+    </ng-template>
+</p-table>

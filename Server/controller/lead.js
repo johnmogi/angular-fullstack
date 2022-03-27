@@ -22,4 +22,30 @@ router.get("/leads/:id", async (request, response) => {
     }
 });
 
+// POST http://localhost:3000/api/leads/1 
+router.post("/leads", async (request, response) => {
+    const data = request.body
+    try {
+        const lead = await leadLogic.createOneLeadAsync(data);
+        response.json(lead);
+    } catch (err) {
+        response.status(500).send(err.message);
+    }
+});
+
+// DELETE http://localhost:3000/api/leads/1 
+router.delete("/leads/:id", async (request, response) => {
+    const id = request.params.id
+    try {
+        await leadLogic.deleteOneLeadAsync(id);
+        response.sendStatus(204);
+
+    } catch (err) {
+        response.status(500).send(err.message);
+    }
+});
+
+
+
+
 module.exports = router;
